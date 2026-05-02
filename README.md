@@ -9,6 +9,7 @@ This fully AI-written extension changes how the trigger phrase copy buttons are 
 I (Blomblo) have been using this since September 2025 without experiencing any issues or negative side-effects.
 
 ### Before
+
 ```
 trigger phrase text [📋]
 ```
@@ -16,6 +17,7 @@ trigger phrase text [📋]
 <img width="720" alt="image" src="https://github.com/user-attachments/assets/7678b988-3e7d-4927-ab03-a5f03562d26c" />
 
 ### After
+
 ```
 [trigger phrase text 📋]
 ```
@@ -32,24 +34,24 @@ trigger phrase text [📋]
 
 ## Installation
 
+### Install in SwarmUI *(Recommended)*
+
+1. Navigate to the Server tab and go to the Extensions Page
+2. Find "AltTriggerPhraseBtn" in the list under "Available Extensions", then press the Install button
+3. Restart SwarmUI
+
+### Manual Install
+
 1. Shutdown SwarmUI (Navigate to the Server tab and press "Shutdown Server")
-2. Open the terminal in the Extensions folder SwarmUI/src/Extensions/
+2. Open the terminal in the Extensions folder `SwarmUI/src/Extensions/`
 3. Copy and paste the following into the terminal and press enter:
-   
+
    ```bash
    git clone https://github.com/mrblomblo/AltTriggerPhraseBtn.git
    ```
-   
-5. Run the dev launch script for your OS. Once it has launched, you can shut it down and run SwarmUI with the regular launch script
+
+4. Run the dev launch script for your OS. Once it has launched, you can shut it down and run SwarmUI with the regular launch script
 
 ## License
 
-MIT License
-
-## Author
-
-Blomblo
-
-## Support
-
-For issues or questions, please open an issue.
+This extension is licensed under the [MIT license](https://github.com/mrblomblo/AltTriggerPhraseBtn/blob/master/LICENSE).
