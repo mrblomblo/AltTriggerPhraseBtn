@@ -25,7 +25,6 @@
     line-height: 1;
 }
 
-button.trigger-phrase-copy-button:not([data-transformed])
-{
+button.trigger-phrase-copy-button:not([data-transformed]) {
     display: none;
 }

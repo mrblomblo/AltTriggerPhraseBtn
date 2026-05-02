@@ -66,7 +66,8 @@ class TriggerPhraseCopyHelper {
 
             // Yield to the browser to ensure UI updates aren't blocked
             setTimeout(() => this.performCopy(copyTextString), 0);
-        } catch (error) {
+        }
+        catch (error) {
             console.error('Copy button click error:', error);
             return true;
         }
@@ -87,7 +88,8 @@ class TriggerPhraseCopyHelper {
         try {
             this.copyToClipboard(copyTextString);
             this.showNotification();
-        } catch (error) {
+        }
+        catch (error) {
             console.error('Copy handler error:', error);
         }
     }
@@ -95,9 +97,11 @@ class TriggerPhraseCopyHelper {
     copyToClipboard(text) {
         if (typeof window.copyText === 'function') {
             window.copyText(text);
-        } else if (navigator.clipboard?.writeText) {
-            navigator.clipboard.writeText(text).catch(() => {});
-        } else {
+        }
+        else if (navigator.clipboard?.writeText) {
+            navigator.clipboard.writeText(text).catch(() => { });
+        }
+        else {
             this.fallbackCopy(text);
         }
     }
@@ -110,7 +114,12 @@ class TriggerPhraseCopyHelper {
         document.body.appendChild(textarea);
         textarea.select();
 
-        try { document.execCommand('copy'); } catch { /* Silently fail */ }
+        try {
+            document.execCommand('copy');
+        }
+        catch {
+            /* Silently fail */
+        }
 
         textarea.remove();
     }
@@ -145,9 +154,7 @@ class TriggerPhraseCopyHelper {
         if (button.dataset.transformed) return; // Prevent double-processing
         button.dataset.transformed = "true";
 
-        let phrase = button.previousSibling?.nodeType === Node.TEXT_NODE
-        ? button.previousSibling.textContent.trim()
-        : button.textContent.trim();
+        let phrase = button.previousSibling?.nodeType === Node.TEXT_NODE ? button.previousSibling.textContent.trim() : button.textContent.trim();
 
         const match = (button.getAttribute('onclick') || '').match(/copyText\('([^']+)'\)/);
         let copyPhrase = match ? match[1] : phrase;
@@ -156,8 +163,8 @@ class TriggerPhraseCopyHelper {
             copyPhrase += ', ';
         }
 
-        const safePhrase = this.escapeForHTML(phrase);
-        const safeCopy = this.escapeForHTML(copyPhrase);
+        const safePhrase = escapeHtmlNoBr(phrase);
+        const safeCopy = escapeJsString(copyPhrase);
 
         button.innerHTML = `
         <span class="trigger-phrase-text">${safePhrase}</span>
@@ -174,21 +181,7 @@ class TriggerPhraseCopyHelper {
     }
 
     shouldAddTrailingComma() {
-        return typeof getUserSetting === 'function' &&
-        getUserSetting('ui.copytriggerphrasewithtrailingcomma', false);
-    }
-
-    escapeForHTML(text) {
-        if (typeof escapeHtmlNoBr === 'function' && typeof escapeJsString === 'function') {
-            return escapeHtmlNoBr(escapeJsString(text));
-        }
-        // Fallback to prevent XSS if global helpers are missing
-        return text
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#039;');
+        return typeof getUserSetting === 'function' && getUserSetting('ui.copytriggerphrasewithtrailingcomma', false);
     }
 }
 
