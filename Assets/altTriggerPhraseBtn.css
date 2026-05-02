@@ -1,0 +1,31 @@
+.trigger-phrase-copy-button {
+    display: inline-flex;
+    align-items: center;
+    gap: .25em;
+    height: inherit;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.trigger-phrase-copy-button:not(:last-child) {
+    margin-bottom: 2px;
+}
+
+.trigger-phrase-copy-button .trigger-phrase-text {
+    user-select: text !important;
+    -webkit-user-select: text !important;
+    -webkit-touch-callout: default;
+    pointer-events: auto;
+    cursor: text;
+}
+
+.trigger-phrase-copy-button .copy-icon {
+    user-select: none;
+    pointer-events: none;
+    line-height: 1;
+}
+
+button.trigger-phrase-copy-button:not([data-transformed])
+{
+    display: none;
+}
