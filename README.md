@@ -13,10 +13,14 @@ I (Blomblo) have been using this since September 2025 without experiencing any i
 trigger phrase text [📋]
 ```
 
+<img width="720" alt="image" src="https://github.com/user-attachments/assets/7678b988-3e7d-4927-ab03-a5f03562d26c" />
+
 ### After
 ```
 [trigger phrase text 📋]
 ```
+
+<img width="720" alt="image" src="https://github.com/user-attachments/assets/55c95df8-6e9a-49bb-a490-bf5bc3adbe2f" />
 
 ## Features
 
