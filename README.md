@@ -1,6 +1,6 @@
 # Alternate Trigger Phrase Button
 
-A SwarmUI extension that modifies the appearance of trigger phrase copy buttons to include the phrase text inside the button itself.
+A [SwarmUI](https://github.com/mcmonkeyprojects/SwarmUI) extension that modifies the appearance of trigger phrase copy buttons to include the phrase text inside the button itself.
 
 ## Description
 
